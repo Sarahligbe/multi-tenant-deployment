@@ -110,9 +110,6 @@ ordersdb:
   image:
     repo: mongo
     tag: 4.4.0
-  persistentVolume:
-    size: 512Mi
-    storageClass: ''
   resources:
     limits:
       cpu: 500m
@@ -167,9 +164,6 @@ sessiondb:
   image:
     repo: redis
     tag: alpine
-  persistentVolume:
-    size: 512Mi
-    storageClass: ''
   resources:
     limits:
       cpu: 250m
