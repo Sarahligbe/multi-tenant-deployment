@@ -8,7 +8,6 @@ metadata:
     name: {{ .Values.rabbitmq.rabbitmqLabel }}
   annotations:
     prometheus.io/scrape: 'true'
-    prometheus.io/path: '/actuator/prometheus'
 spec:
   ports:
     # the port that this service should serve on

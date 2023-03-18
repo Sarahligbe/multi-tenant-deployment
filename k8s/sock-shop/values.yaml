@@ -77,20 +77,6 @@ frontend:
       cpu: 100m
       memory: 300Mi
 
-loadtest:
-  enabled: false
-  image:
-    repo: weaveworksdemos/load-test
-    tag: 0.1.1
-  replicas: 2
-  resources:
-    limits:
-      cpu: 300m
-      memory: 1000Mi
-    requests:
-      cpu: 100m
-      memory: 300Mi
-
 orders:
   ordersLabel: orders
   containerPort: 80

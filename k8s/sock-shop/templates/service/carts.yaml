@@ -2,17 +2,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.orders.ordersLabel }}
+  name: {{ .Values.carts.cartsLabel }}
   #namespace: {{ .Values.namespace }}
   labels:
-    name: {{ .Values.orders.ordersLabel }}
+    name: {{ .Values.carts.cartsLabel }}
   annotations:
     prometheus.io/scrape: 'true'
-    prometheus.io/path: '/actuator/prometheus'
 spec:
   ports:
     # the port that this service should serve on
   - port: 80
-    targetPort: {{ .Values.orders.containerPort }}
+    targetPort: {{ .Values.carts.containerPort }}
   selector:
-    name: {{ .Values.orders.ordersLabel }}
+    name: {{ .Values.carts.cartsLabel }}

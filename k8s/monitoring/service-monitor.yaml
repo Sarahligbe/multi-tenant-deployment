@@ -1,0 +1,139 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: front-end
+  labels:
+    release: monitoring
+    name: front-end
+spec:
+  endpoints:
+  - path: /metrics
+    port: front-end
+    targetPort: 8079
+  namespaceSelector:
+    matchNames:
+    - sock-shop
+  selector:
+    matchLabels:
+      name: front-end
+
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: carts
+  labels:
+    release: monitoring
+    app: nodeapp
+spec:
+  endpoints:
+  - path: /metrics
+    port: carts
+    targetPort: 80
+  namespaceSelector:
+    matchNames:
+    - sock-shop
+  selector:
+    matchLabels:
+      name: carts
+
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: catalogue
+  labels:
+    release: monitoring
+    name: catalogue
+spec:
+  endpoints:
+  - path: /metrics
+    port: catalogue
+    targetPort: 80
+  namespaceSelector:
+    matchNames:
+    - sock-shop
+  selector:
+    matchLabels:
+      name: catalogue
+
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: orders
+  labels:
+    release: monitoring
+    name: orders
+spec:
+  endpoints:
+  - path: /metrics
+    port: orders
+    targetPort: 80
+  namespaceSelector:
+    matchNames:
+    - sock-shop
+  selector:
+    matchLabels:
+      name: orders
+
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: payment
+  labels:
+    release: monitoring
+    name: payment
+spec:
+  endpoints:
+  - path: /metrics
+    port: payment
+    targetPort: 8080
+  namespaceSelector:
+    matchNames:
+    - sock-shop
+  selector:
+    matchLabels:
+      name: payment
+
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: shipping
+  labels:
+    release: monitoring
+    name: shipping
+spec:
+  endpoints:
+  - path: /metrics
+    port: shipping
+    targetPort: 80
+  namespaceSelector:
+    matchNames:
+    - sock-shop
+  selector:
+    matchLabels:
+      name: shipping
+
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: user
+  labels:
+    release: monitoring
+    name: user
+spec:
+  endpoints:
+  - path: /metrics
+    port: user
+    targetPort: 80
+  namespaceSelector:
+    matchNames:
+    - sock-shop
+  selector:
+    matchLabels:
+      name: user
