@@ -4,6 +4,11 @@ kind: ApplicationSet
 metadata:
   name: multi-tenancy
   namespace: argocd
+  annotations: 
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: "#argocd-build"
+    notifications.argoproj.io/subscribe.on-sync-failed.slack: "#argocd-build"
+    notifications.argoproj.io/subscribe.on-health-degraded: "#argocd-build"
+    notifications.argoproj.io/subscribe.on-deployed.slack: "#argocd-build"
 spec: 
   generators: 
     - git: 

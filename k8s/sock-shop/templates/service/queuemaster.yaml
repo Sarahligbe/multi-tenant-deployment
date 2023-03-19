@@ -9,7 +9,7 @@ metadata:
   annotations:
     prometheus.io/scrape: 'true'
     app: kube-prometheus-stack-operator
-    release: "prometheus"
+    release: "monitoring"
     
 spec:
   ports:
@@ -20,4 +20,4 @@ spec:
   selector:
     name: {{ .Values.queuemaster.queuemasterLabel }}
     app: kube-prometheus-stack-operator
-    release: "prometheus"
+    release: "monitoring"

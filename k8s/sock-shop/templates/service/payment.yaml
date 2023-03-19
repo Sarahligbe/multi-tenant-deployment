@@ -9,7 +9,7 @@ metadata:
   annotations:
     prometheus.io/scrape: 'true'
     app: kube-prometheus-stack-operator
-    release: "prometheus"
+    release: "monitoring"
 spec:
   ports:
     # the port that this service should serve on
@@ -18,4 +18,4 @@ spec:
   selector:
     name: {{ .Values.payment.paymentLabel }}
     app: kube-prometheus-stack-operator
-    release: "prometheus"
+    release: "monitoring"
