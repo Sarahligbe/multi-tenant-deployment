@@ -17,5 +17,4 @@ spec:
     targetPort: {{ .Values.orders.containerPort }}
   selector:
     name: {{ .Values.orders.ordersLabel }}
-    app: kube-prometheus-stack-operator
-    release: "monitoring"
+
