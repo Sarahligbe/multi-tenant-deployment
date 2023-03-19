@@ -19,5 +19,4 @@ spec:
     targetPort: 80
   selector:
     name: {{ .Values.queuemaster.queuemasterLabel }}
-    app: kube-prometheus-stack-operator
-    release: "monitoring"
+
