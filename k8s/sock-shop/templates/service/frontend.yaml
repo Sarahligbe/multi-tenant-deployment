@@ -16,7 +16,7 @@ spec:
   - port: 80
     name: {{ .Values.frontend.frontendLabel }}
     targetPort: 8079
-  selector:
-    name: {{ .Values.frontend.frontendLabel }}
-    app: kube-prometheus-stack-operator
-    release: "monitoring"
+#  selector:
+#    name: {{ .Values.frontend.frontendLabel }}
+#    app: kube-prometheus-stack-operator
+#    release: "monitoring"
