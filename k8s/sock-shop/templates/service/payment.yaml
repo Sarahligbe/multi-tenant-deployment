@@ -8,6 +8,8 @@ metadata:
     name: {{ .Values.payment.paymentLabel }}
   annotations:
     prometheus.io/scrape: 'true'
+    app: kube-prometheus-stack-operator
+    release: "prometheus"
 spec:
   ports:
     # the port that this service should serve on
@@ -15,3 +17,5 @@ spec:
     targetPort: {{ .Values.payment.containerPort }}
   selector:
     name: {{ .Values.payment.paymentLabel }}
+    app: kube-prometheus-stack-operator
+    release: "prometheus"

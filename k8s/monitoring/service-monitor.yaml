@@ -4,19 +4,21 @@ kind: ServiceMonitor
 metadata:
   name: front-end
   labels:
-    release: monitoring
+    release: "prometheus"
     name: front-end
 spec:
   endpoints:
   - path: /metrics
     port: front-end
-    targetPort: 8079
   namespaceSelector:
     matchNames:
     - sock-shop
   selector:
     matchLabels:
       name: front-end
+      app: kube-prometheus-stack-operator
+      release: "prometheus"
+
 
 ---
 apiVersion: monitoring.coreos.com/v1
@@ -24,7 +26,7 @@ kind: ServiceMonitor
 metadata:
   name: carts
   labels:
-    release: monitoring
+    release: "prometheus"
     app: nodeapp
 spec:
   endpoints:
@@ -37,6 +39,8 @@ spec:
   selector:
     matchLabels:
       name: carts
+      app: kube-prometheus-stack-operator
+      release: "prometheus"
 
 ---
 apiVersion: monitoring.coreos.com/v1
@@ -44,7 +48,7 @@ kind: ServiceMonitor
 metadata:
   name: catalogue
   labels:
-    release: monitoring
+    release: "prometheus"
     name: catalogue
 spec:
   endpoints:
@@ -57,6 +61,8 @@ spec:
   selector:
     matchLabels:
       name: catalogue
+      app: kube-prometheus-stack-operator
+      release: "prometheus"
 
 ---
 apiVersion: monitoring.coreos.com/v1
@@ -64,7 +70,7 @@ kind: ServiceMonitor
 metadata:
   name: orders
   labels:
-    release: monitoring
+    release: "prometheus"
     name: orders
 spec:
   endpoints:
@@ -77,6 +83,8 @@ spec:
   selector:
     matchLabels:
       name: orders
+      app: kube-prometheus-stack-operator
+      release: "prometheus"
 
 ---
 apiVersion: monitoring.coreos.com/v1
@@ -84,7 +92,7 @@ kind: ServiceMonitor
 metadata:
   name: payment
   labels:
-    release: monitoring
+    release: "prometheus"
     name: payment
 spec:
   endpoints:
@@ -97,6 +105,8 @@ spec:
   selector:
     matchLabels:
       name: payment
+      app: kube-prometheus-stack-operator
+      release: "prometheus"
 
 ---
 apiVersion: monitoring.coreos.com/v1
@@ -104,7 +114,7 @@ kind: ServiceMonitor
 metadata:
   name: shipping
   labels:
-    release: monitoring
+    release: "prometheus"
     name: shipping
 spec:
   endpoints:
@@ -117,6 +127,8 @@ spec:
   selector:
     matchLabels:
       name: shipping
+      app: kube-prometheus-stack-operator
+      release: "prometheus"
 
 ---
 apiVersion: monitoring.coreos.com/v1
@@ -124,7 +136,7 @@ kind: ServiceMonitor
 metadata:
   name: user
   labels:
-    release: monitoring
+    release: "prometheus"
     name: user
 spec:
   endpoints:
@@ -137,3 +149,5 @@ spec:
   selector:
     matchLabels:
       name: user
+      app: kube-prometheus-stack-operator
+      release: "prometheus"

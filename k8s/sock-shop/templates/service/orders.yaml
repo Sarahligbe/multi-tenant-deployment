@@ -8,6 +8,8 @@ metadata:
     name: {{ .Values.orders.ordersLabel }}
   annotations:
     prometheus.io/scrape: 'true'
+    app: kube-prometheus-stack-operator
+    release: "prometheus"
 spec:
   ports:
     # the port that this service should serve on
@@ -15,3 +17,5 @@ spec:
     targetPort: {{ .Values.orders.containerPort }}
   selector:
     name: {{ .Values.orders.ordersLabel }}
+    app: kube-prometheus-stack-operator
+    release: "prometheus"

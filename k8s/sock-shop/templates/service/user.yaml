@@ -7,6 +7,8 @@ metadata:
     name: {{ .Values.user.userLabel }}
   annotations:
     prometheus.io/scrape: 'true'
+    app: kube-prometheus-stack-operator
+    release: "prometheus"
 spec:
   ports:
   - port: 80
@@ -14,3 +16,5 @@ spec:
     targetPort: {{ .Values.user.containerPort }}
   selector:
     name: {{ .Values.user.userLabel }}
+    app: kube-prometheus-stack-operator
+    release: "prometheus"
