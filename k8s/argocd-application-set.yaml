@@ -4,27 +4,25 @@ kind: ApplicationSet
 metadata:
   name: multi-tenancy
   namespace: argocd
-  annotations: 
-    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: "#argocd-build"
-    notifications.argoproj.io/subscribe.on-sync-failed.slack: "#argocd-build"
-    notifications.argoproj.io/subscribe.on-health-degraded: "#argocd-build"
-    notifications.argoproj.io/subscribe.on-deployed.slack: "#argocd-build"
 spec: 
   generators: 
     - git: 
-        repoURL: https://github.com/Sarahligbe/multi-tenant-deployment.git
+        repoURL: https://github.com/Sarahligbe/kubernetes-cluster.git
         revision: HEAD
         directories: 
-          - path: k8s/sock-shop/*
-          - path: k8s/portfolio/*
-          - path: k8s/monitoring/*
+          - path: k8s/*
   template: 
     metadata: 
       name: '{{path.basename}}'
+      annotations: 
+        notifications.argoproj.io/subscribe.on-sync-succeeded.slack: argocd-build
+        notifications.argoproj.io/subscribe.on-sync-failed.slack: argocd-build
+        notifications.argoproj.io/subscribe.on-health-degraded: argocd-build
+        notifications.argoproj.io/subscribe.on-deployed.slack: argocd-build
     spec: 
       project: multi-tenancy
       source: 
-        repoURL: https://github.com/Sarahligbe/multi-tenant-deployment.git
+        repoURL: https://github.com/Sarahligbe/kubernetes-cluster.git
         targetRevision: HEAD
         path: '{{path}}'
       destination: 
